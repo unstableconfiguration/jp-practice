@@ -1,0 +1,167 @@
+:root {
+    /* https://paletton.com/#uid=33m0q0kllllaFw0g0qFqFg0w0aF
+        For text: saturation -40, contrast +25 */
+    --text-dark : #344043;
+    --text-mid : #5b6769;
+    --text-light : #fefefe;
+
+    --control : #255e69;
+    --control-dark: #0f454f;
+    --info : #ab8539;
+    --info-dark : #805d16;
+    --error : #ab4d39;
+    --error-dark : #802816;
+
+}
+
+body {
+    background-color: var(--text-light);
+    color : var(--text-dark);
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight:400;
+    line-height:1.5;
+}
+
+@media screen and (max-width: 1280px) {
+	body {
+		font-size: 10pt;
+        line-height:1.25;
+	}
+}
+
+.header { 
+    background-color: var(--text-dark);
+    color: var(--text-light);
+    padding: 1.5em 2.5em;
+}
+
+.header a {
+    color: var(--text-light);
+    text-decoration:none;
+    font-size:22px;
+    font-weight: 600;
+}
+
+.header a:visited {
+    color : var(--text-light);
+}
+
+.footer { 
+    background-color: var(--text-dark);
+    color: var(--text-light);
+    padding: .5em 2.5em;
+}
+
+.footer a, .footer a:hover, .footer a:visited {
+    color:var(--text-light);
+}
+
+.footer ul li {
+    display:inline
+}
+
+.footer ul li::after {
+    content : ' | '
+}
+
+.footer ul li:last-child::after {
+    content:'';
+}
+
+.content {
+    margin: 2em 5em;
+}
+
+code,pre {
+    font-family: Courier New, Courier, monospace;
+}
+
+a, a:visited { 
+    color: var(--control);
+    text-decoration:underline;
+}
+
+a:hover   {
+    font-style:italic;
+}
+
+/*  */
+.tabs {
+    display:flex;
+    line-height:30px;
+    margin:25px;
+}
+
+.tabs :last-child {
+    border-right:none;
+}
+
+.tabs span {
+    border-right:solid thin;
+    display:inline-block;
+    font-weight:bold;
+    min-width:100px;
+    text-align: center;
+}
+
+.tabs .selected {
+    opacity: .5;
+    text-decoration:underline;
+}
+
+/* html table defaults */
+.grid tBody > tr { 
+    border-bottom : solid thin var(--text-mid);
+}
+
+
+.grid th {
+    font-weight: bold;
+    padding: 2px 6px;
+}
+
+.grid td { 
+    padding: 1px 6px;
+}
+
+.btn, .btn-inline {
+    background-color:var(--control);
+    border:transparent;
+    color:var(--text-light);
+    display:inline-block;
+    font-size:14px;
+    padding:.5em 1em;
+}
+
+.btn-inline { 
+    display:inline-block;
+    font-size:inherit;  
+    line-height:inherit;
+    padding:.1em .75em; 
+}
+
+.btn:hover, .btn:focus, 
+.btn-inline:hover, .btn-inline:focus {
+    background-color: var(--control-dark);
+}
+
+.btn-invert {
+    color:var(--control);
+    background-color:var(--text-light);
+    border:solid thin var(--control);
+}
+
+.btn-invert:hover, .btn-invert:focus {
+    color:var(--control-dark);
+    background-color:var(--text-light);
+    border:solid thin var(--control-dark);
+}
+
+
+.info {
+    color : var(--info);
+}
+
+.error { 
+    color : var(--error);
+}
