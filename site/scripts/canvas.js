@@ -5,6 +5,7 @@
  */
 
 export let canvas = document.createElement('canvas');
+canvas.width = 150; canvas.height = 150;
 
 canvas.addEventListener('touchmove', draw);
 canvas.addEventListener('touchend', resetPosition)
@@ -22,6 +23,8 @@ function setPosition(e) {
     
     posB.x = e.touches[0].pageX - e.target.offsetLeft;
     posB.y = e.touches[0].pageY - e.target.offsetTop;
+
+    console.log(posA, posB)
 }
 
 let ctx = canvas.getContext('2d');    
