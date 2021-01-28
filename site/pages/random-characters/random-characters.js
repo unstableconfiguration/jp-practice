@@ -32,7 +32,7 @@ export let page = lite.extend({
         return { english : randChar, japanese : alphabet[randChar] }    
     },
     toggleFilter : function(el, filterStatus) {
-        let filterClass = ' charDisplayFilter';
+        let filterClass = ' char-display-filter';
         if(filterStatus && !el.className.includes(filterClass)) {
             el.className += filterClass;
         }
