@@ -5,10 +5,10 @@ import { hiragana } from '../../scripts/hiragana.js';
 export let page = lite.extend({
     contentUrl : 'pages/random-characters/random-characters.html',
     el : {
-        charDisplayLeft : '',
-        charDisplayRight : '',
-        btnRandomCharacter : '', 
-        canvasContainer : ''
+        charDisplayLeft : 'eng-display',
+        charDisplayRight : 'jp-display',
+        btnRandomCharacter : 'btn-random-character', 
+        canvasContainer : 'canvas-container'
     },
     initialize : function() {
         this.loadStyleSheet('pages/random-characters/random-characters.css')
@@ -19,7 +19,7 @@ export let page = lite.extend({
     },
     initializeElements : function() { 
         for(let k in this.el) {
-            this.el[k] = document.getElementById(k);
+            this.el[k] = document.getElementById(this.el[k]);
         }
         this.el.btnRandomCharacter.addEventListener('click', this.onRandomCharacterClick.bind(this));
         this.el.charDisplayRight.addEventListener('click', this.onCharDisplayClick.bind(this));
