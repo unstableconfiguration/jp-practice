@@ -1,5 +1,5 @@
-import { lite } from './scripts/lite.js.js';
-import { routes } from './scripts/routes.js.js';
+import { lite } from './scripts/lite.js';
+import { routes } from './scripts/routes.js';
 
 export function main() { 
     initializer.init();

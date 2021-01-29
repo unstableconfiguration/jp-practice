@@ -1,7 +1,17 @@
-import { lite } from '../../scripts/lite.js.js';
-import { hiragana } from '../../scripts/hiragana.js.js';
-import { canvas } from '../../scripts/canvas.js.js';
+import { lite } from '../../scripts/lite.js';
+import { hiragana } from '../../scripts/hiragana.js';
+import { canvas } from '../../scripts/canvas.js';
+/*
+    Create UI: 
+        1 row of 5 for eng
+        1 row of 5 for jp
+            needs filters
+        buttons
+            next set 
+            prev set
+        1 row for wide canvas 
 
+*/
 export let page = lite.extend({
     contentUrl : 'pages/character-groups/character-groups.html',
     el : { 
