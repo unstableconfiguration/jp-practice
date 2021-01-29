@@ -1,6 +1,6 @@
-import { lite } from '../../scripts/lite.js';
-import { canvas } from './canvas.js';
-import { hiragana } from '../../scripts/hiragana.js';
+import { lite } from '../../scripts/lite.js.js';
+import { canvas } from './canvas.js.js';
+import { hiragana } from '../../scripts/hiragana.js.js';
 
 export let page = lite.extend({
     contentUrl : 'pages/random-characters/random-characters.html',
