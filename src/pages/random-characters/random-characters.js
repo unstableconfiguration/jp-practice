@@ -30,6 +30,8 @@ export let page = lite.extend({
         let chars = Object.keys(alphabet);
         let rand = Math.floor(Math.random() * chars.length);
         let randChar = chars[rand];
+
+        if(!alphabet[randChar]) { return this.getRandomCharacter(alphabet); }
         return { english : randChar, japanese : alphabet[randChar] }    
     },
     toggleFilter : function(el, filterStatus) {
