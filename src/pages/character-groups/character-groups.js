@@ -41,17 +41,34 @@ export let page = lite.extend({
         this.el.jpDisplay5.addEventListener('click', this.onJPCharClick.bind(this));
         //this.el.canvasContainer.appendChild(canvas);
     },
-    getCharSet : function(alphabet) { 
-        // Load sets of 5 from the given alphabet
+    direction : { previous : 1, next : 2 },
+    // the 'a' char of the current set
+    currentChar : null,
+    getCharSet : function(alphabet, dir) {  
+        let keys = Object.keys(alphabet);
+        let currentIdx = keys.findIndex(k => k == (this.currentChar || 'a'));
+
+        let isNext = (dir == this.direction.next);
+        let nextIdx = currentIdx + (isNext ? 5 : -5); 
+        if(nextIdx < 0) { nextIdx = keys.length - 5; }
+        if(nextIdx == keys.length) { nextIdx = 0; }
+
+        this.currentChar = keys[nextIdx]
+
+        return [
+            { english : keys[nextIdx], japanese : alphabet[keys[nextIdx]] },
+            { english : keys[nextIdx + 1], japanese : alphabet[keys[nextIdx + 1]] },
+            { english : keys[nextIdx + 2], japanese : alphabet[keys[nextIdx + 2]] },
+            { english : keys[nextIdx + 3], japanese : alphabet[keys[nextIdx + 3]] },
+            { english : keys[nextIdx + 4], japanese : alphabet[keys[nextIdx + 4]] },
+        ];
     },
     onNextSetClick : function(ev) { 
-        // Load next 5 using getCharSet
-        // Apply filters
+        let chars = this.getCharSet(hiragana, this.direction.next);
         this.toggleFilters();
     },
     onPreviousSetClick : function(ev) { 
-        // Load previous 5 using getCharSet 
-        // ApplyFilters
+        let chars = this.getCharSet(hiragana, this.direction.previous);
         this.toggleFilters();
     }, 
     onJPCharClick : function(ev) { 
@@ -73,6 +90,5 @@ export let page = lite.extend({
         else if(!status) {
             el.className = el.className.replace(filterClass, '');
         }
-    }
-    
+    } 
 });
