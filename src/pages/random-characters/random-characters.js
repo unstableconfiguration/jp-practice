@@ -1,5 +1,5 @@
 import { lite } from '../../scripts/lite.js';
-import { canvas } from './canvas.js';
+import { FingerPaint } from '../../scripts/finger-paint.js';
 import { hiragana } from '../../scripts/hiragana.js';
 
 export let page = lite.extend({
@@ -12,18 +12,19 @@ export let page = lite.extend({
     },
     initialize : function() {
         this.loadStyleSheet('pages/random-characters/random-characters.css')
-    
+        this.fingerPaint = new FingerPaint();
     },
     onContentBound : function() { 
         this.initializeElements();
     },
     initializeElements : function() { 
+        let view = this;
         for(let k in this.el) {
             this.el[k] = document.getElementById(this.el[k]);
         }
         this.el.btnRandomCharacter.addEventListener('click', this.onRandomCharacterClick.bind(this));
         this.el.charDisplayRight.addEventListener('click', this.onCharDisplayClick.bind(this));
-        this.el.canvasContainer.appendChild(canvas);
+        this.el.canvasContainer.appendChild(view.fingerPaint.canvas);
     },
     getRandomCharacter : function(alphabet) { 
         let chars = Object.keys(alphabet);
@@ -45,8 +46,7 @@ export let page = lite.extend({
         this.el.charDisplayLeft.innerHTML = randChar.english;
         this.el.charDisplayRight.innerHTML = randChar.japanese;
 
-        const context = canvas.getContext('2d');
-        context.clearRect(0, 0, canvas.width, canvas.height);
+        this.fingerPaint.clear();
 
         this.toggleFilter(this.el.charDisplayRight, true);
     },
