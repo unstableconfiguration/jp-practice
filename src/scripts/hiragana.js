@@ -60,9 +60,9 @@ export let hiragana = {
     me : 'め', 
     mo : 'も',
     ya : 'や', 
-    /* */
+    yi : '',
     yu : 'ゆ', 
-    /* */
+    ye : '',
     yo : 'よ', 
     ra : 'ら', 
     ri : 'り', 
@@ -70,9 +70,9 @@ export let hiragana = {
     re : 'れ', 
     ro : 'ろ', 
     wa : 'わ', 
-    /* */
-    /* */
-    /* */
+    wi : '',
+    wu : '',
+    we : '',
     wo : 'を',  
 
 }
