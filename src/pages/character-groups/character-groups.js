@@ -74,11 +74,13 @@ export let page = lite.extend({
         let chars = this.getCharSet(hiragana, this.direction.next);
         this.setChars(chars);
         this.toggleFilters();
+        this.fingerPaint.clear();
     },
     onPreviousSetClick : function(ev) { 
         let chars = this.getCharSet(hiragana, this.direction.previous);
         this.setChars(chars);
         this.toggleFilters();
+        this.fingerPaint.clear();
     }, 
     setChars : function(chars) {
         this.el.engDisplay1.innerHTML = chars[0].english;
