@@ -1,17 +1,7 @@
 import { lite } from '../../scripts/lite.js';
 import { hiragana } from '../../scripts/hiragana.js';
-import { canvas } from '../../scripts/canvas.js';
-/*
-    Create UI: 
-        1 row of 5 for eng
-        1 row of 5 for jp
-            needs filters
-        buttons
-            next set 
-            prev set
-        1 row for wide canvas 
+import { FingerPaint } from '../../scripts/finger-paint.js';
 
-*/
 export let page = lite.extend({
     contentUrl : 'pages/character-groups/character-groups.html',
     el : { 
@@ -30,6 +20,7 @@ export let page = lite.extend({
         canvasContainer : 'canvas-container'
     },
     initialize : function() { 
+        this.loadStyleSheet('pages/character-groups/random-characters.css')
         // Canvas is currently a singleton, 
             // we'll need to convert it to something constructable
     },
@@ -48,7 +39,7 @@ export let page = lite.extend({
         this.el.jpDisplay3.addEventListener('click', this.onJPCharClick.bind(this));
         this.el.jpDisplay4.addEventListener('click', this.onJPCharClick.bind(this));
         this.el.jpDisplay5.addEventListener('click', this.onJPCharClick.bind(this));
-        this.el.canvasContainer.appendChild(canvas);
+        //this.el.canvasContainer.appendChild(canvas);
     },
     getCharSet : function(alphabet) { 
         // Load sets of 5 from the given alphabet
@@ -56,12 +47,32 @@ export let page = lite.extend({
     onNextSetClick : function(ev) { 
         // Load next 5 using getCharSet
         // Apply filters
+        this.toggleFilters();
     },
     onPreviousSetClick : function(ev) { 
         // Load previous 5 using getCharSet 
         // ApplyFilters
+        this.toggleFilters();
     }, 
     onJPCharClick : function(ev) { 
         // Remove filter 
+        this.toggleFilter(ev.target, false);
+    },
+    toggleFilters : function(status = true) {
+        this.toggleFilter(this.el.jpDisplay1, status);
+        this.toggleFilter(this.el.jpDisplay2, status);
+        this.toggleFilter(this.el.jpDisplay3, status);
+        this.toggleFilter(this.el.jpDisplay4, status);
+        this.toggleFilter(this.el.jpDisplay5, status);
+    },
+    toggleFilter : function(el, status = true) { 
+        let filterClass = ' char-display-filter';
+        if(status && !el.className.includes(filterClass)) {
+            el.className += filterClass;
+        }
+        else if(!status) {
+            el.className = el.className.replace(filterClass, '');
+        }
     }
+    
 });
