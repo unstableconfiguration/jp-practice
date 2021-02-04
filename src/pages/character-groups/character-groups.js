@@ -25,6 +25,13 @@ export let page = lite.extend({
             // we'll need to convert it to something constructable
     },
     onContentBound : function() { 
+        let left = document.getElementById('eng-display-1').getClientRects()[0].left;
+        let right = document.getElementById('eng-display-5').getClientRects()[0].right;
+        
+        this.fingerPaint = new FingerPaint({
+            width : right - left
+        });
+
         this.initializeElements();
     },
     initializeElements : function() { 
@@ -39,7 +46,7 @@ export let page = lite.extend({
         this.el.jpDisplay3.addEventListener('click', this.onJPCharClick.bind(this));
         this.el.jpDisplay4.addEventListener('click', this.onJPCharClick.bind(this));
         this.el.jpDisplay5.addEventListener('click', this.onJPCharClick.bind(this));
-        //this.el.canvasContainer.appendChild(canvas);
+        this.el.canvasContainer.appendChild(this.fingerPaint.canvas);
     },
     direction : { previous : 1, next : 2 },
     // the 'a' char of the current set
@@ -87,7 +94,6 @@ export let page = lite.extend({
         this.el.jpDisplay5.innerHTML = chars[4].japanese;   
     },
     onJPCharClick : function(ev) { 
-        // Remove filter 
         this.toggleFilter(ev.target, false);
     },
     toggleFilters : function(status = true) {
