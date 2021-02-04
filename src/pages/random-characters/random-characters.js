@@ -4,15 +4,15 @@ import { hiragana } from '../../scripts/hiragana.js';
 
 export let page = lite.extend({
     contentUrl : 'pages/random-characters/random-characters.html',
-    el : {
-        charDisplayLeft : 'eng-display',
-        charDisplayRight : 'jp-display',
-        btnRandomCharacter : 'btn-random-character', 
-        canvasContainer : 'canvas-container'
-    },
     initialize : function() {
         this.loadStyleSheet('pages/random-characters/random-characters.css')
         this.fingerPaint = new FingerPaint();
+        this.el = {
+            charDisplayLeft : 'eng-display',
+            charDisplayRight : 'jp-display',
+            btnRandomCharacter : 'btn-random-character', 
+            canvasContainer : 'canvas-container'
+        }
     },
     onContentBound : function() { 
         this.initializeElements();

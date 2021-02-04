@@ -4,25 +4,24 @@ import { FingerPaint } from '../../scripts/finger-paint.js';
 
 export let page = lite.extend({
     contentUrl : 'pages/character-groups/character-groups.html',
-    el : { 
-        engDisplay1 : 'eng-display-1',
-        engDisplay2 : 'eng-display-2',
-        engDisplay3 : 'eng-display-3',
-        engDisplay4 : 'eng-display-4',
-        engDisplay5 : 'eng-display-5',
-        jpDisplay1 : 'jp-display-1',
-        jpDisplay2 : 'jp-display-2',
-        jpDisplay3 : 'jp-display-3',
-        jpDisplay4 : 'jp-display-4',
-        jpDisplay5 : 'jp-display-5',
-        btnPreviousSet : 'btn-previous-set',
-        btnNextSet : 'btn-next-set',
-        canvasContainer : 'canvas-container'
-    },
+
     initialize : function() { 
         this.loadStyleSheet('pages/character-groups/random-characters.css')
-        // Canvas is currently a singleton, 
-            // we'll need to convert it to something constructable
+        this.el = { 
+            engDisplay1 : 'eng-display-1',
+            engDisplay2 : 'eng-display-2',
+            engDisplay3 : 'eng-display-3',
+            engDisplay4 : 'eng-display-4',
+            engDisplay5 : 'eng-display-5',
+            jpDisplay1 : 'jp-display-1',
+            jpDisplay2 : 'jp-display-2',
+            jpDisplay3 : 'jp-display-3',
+            jpDisplay4 : 'jp-display-4',
+            jpDisplay5 : 'jp-display-5',
+            btnPreviousSet : 'btn-previous-set',
+            btnNextSet : 'btn-next-set',
+            canvasContainer : 'canvas-container'
+        }
     },
     onContentBound : function() { 
         let left = document.getElementById('eng-display-1').getClientRects()[0].left;
@@ -38,6 +37,7 @@ export let page = lite.extend({
         for(let k in this.el) {
             this.el[k] = document.getElementById(this.el[k]);
         }
+
         this.el.btnPreviousSet.addEventListener('click', this.onPreviousSetClick.bind(this));
         this.el.btnNextSet.addEventListener('click', this.onNextSetClick.bind(this));
 
