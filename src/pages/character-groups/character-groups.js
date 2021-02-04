@@ -65,12 +65,27 @@ export let page = lite.extend({
     },
     onNextSetClick : function(ev) { 
         let chars = this.getCharSet(hiragana, this.direction.next);
+        this.setChars(chars);
         this.toggleFilters();
     },
     onPreviousSetClick : function(ev) { 
         let chars = this.getCharSet(hiragana, this.direction.previous);
+        this.setChars(chars);
         this.toggleFilters();
     }, 
+    setChars : function(chars) {
+        this.el.engDisplay1.innerHTML = chars[0].english;
+        this.el.engDisplay2.innerHTML = chars[1].english;
+        this.el.engDisplay3.innerHTML = chars[2].english;
+        this.el.engDisplay4.innerHTML = chars[3].english;
+        this.el.engDisplay5.innerHTML = chars[4].english;
+        
+        this.el.jpDisplay1.innerHTML = chars[0].japanese;
+        this.el.jpDisplay2.innerHTML = chars[1].japanese;
+        this.el.jpDisplay3.innerHTML = chars[2].japanese;
+        this.el.jpDisplay4.innerHTML = chars[3].japanese;
+        this.el.jpDisplay5.innerHTML = chars[4].japanese;   
+    },
     onJPCharClick : function(ev) { 
         // Remove filter 
         this.toggleFilter(ev.target, false);
