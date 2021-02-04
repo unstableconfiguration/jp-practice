@@ -26,10 +26,12 @@ export let page = lite.extend({
         jpDisplay4 : 'jp-display-4',
         jpDisplay5 : 'jp-display-5',
         btnPreviousSet : 'btn-previous-set',
-        btnNextSet : 'btn-next-set'
+        btnNextSet : 'btn-next-set',
+        canvasContainer : 'canvas-container'
     },
     initialize : function() { 
-
+        // Canvas is currently a singleton, 
+            // we'll need to convert it to something constructable
     },
     onContentBound : function() { 
         this.initializeElements();
@@ -48,7 +50,18 @@ export let page = lite.extend({
         this.el.jpDisplay5.addEventListener('click', this.onJPCharClick.bind(this));
         this.el.canvasContainer.appendChild(canvas);
     },
-    getCharSet : function() { 
-
-    } 
+    getCharSet : function(alphabet) { 
+        // Load sets of 5 from the given alphabet
+    },
+    onNextSetClick : function(ev) { 
+        // Load next 5 using getCharSet
+        // Apply filters
+    },
+    onPreviousSetClick : function(ev) { 
+        // Load previous 5 using getCharSet 
+        // ApplyFilters
+    }, 
+    onJPCharClick : function(ev) { 
+        // Remove filter 
+    }
 });
