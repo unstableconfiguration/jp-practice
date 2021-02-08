@@ -9,6 +9,7 @@
     
     font-size:5em;
     text-align:center;
+    vertical-align: top;
 }
 
 .char-display-filter {
@@ -21,7 +22,5 @@
 
 canvas {
     border:solid thin var(--control-dark);
-
     margin: 10px 0px;
-
 }
