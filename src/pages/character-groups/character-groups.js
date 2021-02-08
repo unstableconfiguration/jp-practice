@@ -6,7 +6,7 @@ export let page = lite.extend({
     contentUrl : 'pages/character-groups/character-groups.html',
 
     initialize : function() { 
-        this.loadStyleSheet('pages/character-groups/random-characters.css')
+        this.loadStyleSheet('css/character-practice.css')
         this.el = { 
             engDisplay1 : 'eng-display-1',
             engDisplay2 : 'eng-display-2',

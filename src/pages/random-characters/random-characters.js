@@ -5,7 +5,7 @@ import { hiragana } from '../../scripts/hiragana.js';
 export let page = lite.extend({
     contentUrl : 'pages/random-characters/random-characters.html',
     initialize : function() {
-        this.loadStyleSheet('pages/random-characters/random-characters.css')
+        this.loadStyleSheet('css/character-practice.css')
         this.fingerPaint = new FingerPaint();
         this.el = {
             charDisplayLeft : 'eng-display',
