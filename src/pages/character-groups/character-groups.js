@@ -4,26 +4,12 @@ import { FingerPaint } from '../../scripts/finger-paint.js';
 
 export let page = lite.extend({
     contentUrl : 'pages/character-groups/character-groups.html',
-
     initialize : function() { 
         this.loadStyleSheet('css/character-practice.css')
-        this.el = { 
-            engDisplay1 : 'eng-display-1',
-            engDisplay2 : 'eng-display-2',
-            engDisplay3 : 'eng-display-3',
-            engDisplay4 : 'eng-display-4',
-            engDisplay5 : 'eng-display-5',
-            jpDisplay1 : 'jp-display-1',
-            jpDisplay2 : 'jp-display-2',
-            jpDisplay3 : 'jp-display-3',
-            jpDisplay4 : 'jp-display-4',
-            jpDisplay5 : 'jp-display-5',
-            btnPreviousSet : 'btn-previous-set',
-            btnNextSet : 'btn-next-set',
-            canvasContainer : 'canvas-container'
-        }
     },
     onContentBound : function() { 
+        this.bindElements();
+
         let left = document.getElementById('eng-display-1').getClientRects()[0].left;
         let right = document.getElementById('eng-display-5').getClientRects()[0].right;
         
@@ -33,11 +19,25 @@ export let page = lite.extend({
 
         this.initializeElements();
     },
-    initializeElements : function() { 
-        for(let k in this.el) {
-            this.el[k] = document.getElementById(this.el[k]);
+    bindElements : function() { 
+        let get = (id) => document.getElementById(id);
+        this.el = { 
+            engDisplay1 : get('eng-display-1'),
+            engDisplay2 : get('eng-display-2'),
+            engDisplay3 : get('eng-display-3'),
+            engDisplay4 : get('eng-display-4'),
+            engDisplay5 : get('eng-display-5'),
+            jpDisplay1 : get('jp-display-1'),
+            jpDisplay2 : get('jp-display-2'),
+            jpDisplay3 : get('jp-display-3'),
+            jpDisplay4 : get('jp-display-4'),
+            jpDisplay5 : get('jp-display-5'),
+            btnPreviousSet : get('btn-previous-set'),
+            btnNextSet : get('btn-next-set'),
+            canvasContainer : get('canvas-container')
         }
-
+    },
+    initializeElements : function() { 
         this.el.btnPreviousSet.addEventListener('click', this.onPreviousSetClick.bind(this));
         this.el.btnNextSet.addEventListener('click', this.onNextSetClick.bind(this));
 
