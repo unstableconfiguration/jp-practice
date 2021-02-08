@@ -6,26 +6,27 @@ export let page = lite.extend({
     contentUrl : 'pages/random-characters/random-characters.html',
     initialize : function() {
         this.loadStyleSheet('css/character-practice.css')
-        this.fingerPaint = new FingerPaint();
     },
     onContentBound : function() { 
         this.bindElements();
-        this.initializeElements();
+        this.addEventListeners();
+        this.addCanvas();
     },
     bindElements : function() { 
+        let get = (id) => document.getElementById(id);
         this.el = {
-            charDisplayLeft : 'eng-display',
-            charDisplayRight : 'jp-display',
-            btnRandomCharacter : 'btn-random-character', 
-            canvasContainer : 'canvas-container'  
-        }
-        for(let k in this.el) { 
-            this.el[k] = document.getElementById(this.el[k]); 
+            charDisplayLeft : get('eng-display'),
+            charDisplayRight : get('jp-display'),
+            btnRandomCharacter : get('btn-random-character'),
+            canvasContainer : get('canvas-container')
         }
     },
-    initializeElements : function() { 
+    addEventListeners : function() { 
         this.el.btnRandomCharacter.addEventListener('click', this.onRandomCharacterClick.bind(this));
         this.el.charDisplayRight.addEventListener('click', this.onCharDisplayClick.bind(this));
+    },
+    addCanvas : function() { 
+        this.fingerPaint = new FingerPaint();
         this.el.canvasContainer.appendChild(this.fingerPaint.canvas);
     },
     onRandomCharacterClick : function(ev) { 
