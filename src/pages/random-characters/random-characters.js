@@ -7,41 +7,26 @@ export let page = lite.extend({
     initialize : function() {
         this.loadStyleSheet('css/character-practice.css')
         this.fingerPaint = new FingerPaint();
+    },
+    onContentBound : function() { 
+        this.bindElements();
+        this.initializeElements();
+    },
+    bindElements : function() { 
         this.el = {
             charDisplayLeft : 'eng-display',
             charDisplayRight : 'jp-display',
             btnRandomCharacter : 'btn-random-character', 
-            canvasContainer : 'canvas-container'
+            canvasContainer : 'canvas-container'  
         }
-    },
-    onContentBound : function() { 
-        this.initializeElements();
+        for(let k in this.el) { 
+            this.el[k] = document.getElementById(this.el[k]); 
+        }
     },
     initializeElements : function() { 
-        let view = this;
-        for(let k in this.el) {
-            this.el[k] = document.getElementById(this.el[k]);
-        }
         this.el.btnRandomCharacter.addEventListener('click', this.onRandomCharacterClick.bind(this));
         this.el.charDisplayRight.addEventListener('click', this.onCharDisplayClick.bind(this));
-        this.el.canvasContainer.appendChild(view.fingerPaint.canvas);
-    },
-    getRandomCharacter : function(alphabet) { 
-        let chars = Object.keys(alphabet);
-        let rand = Math.floor(Math.random() * chars.length);
-        let randChar = chars[rand];
-
-        if(!alphabet[randChar]) { return this.getRandomCharacter(alphabet); }
-        return { english : randChar, japanese : alphabet[randChar] }    
-    },
-    toggleFilter : function(el, filterStatus) {
-        let filterClass = ' char-display-filter';
-        if(filterStatus && !el.className.includes(filterClass)) {
-            el.className += filterClass;
-        }
-        else if(!filterStatus) {
-            el.className = el.className.replace(filterClass, '');
-        }
+        this.el.canvasContainer.appendChild(this.fingerPaint.canvas);
     },
     onRandomCharacterClick : function(ev) { 
         let randChar = this.getRandomCharacter(hiragana);
@@ -54,5 +39,22 @@ export let page = lite.extend({
     },
     onCharDisplayClick : function(ev) { 
         this.toggleFilter(this.el.charDisplayRight, false);
+    },
+    toggleFilter : function(el, filterStatus) {
+        let filterClass = ' char-display-filter';
+        if(filterStatus && !el.className.includes(filterClass)) {
+            el.className += filterClass;
+        }
+        else if(!filterStatus) {
+            el.className = el.className.replace(filterClass, '');
+        }
+    },
+    getRandomCharacter : function(alphabet) { 
+        let chars = Object.keys(alphabet);
+        let rand = Math.floor(Math.random() * chars.length);
+        let randChar = chars[rand];
+
+        if(!alphabet[randChar]) { return this.getRandomCharacter(alphabet); }
+        return { english : randChar, japanese : alphabet[randChar] }    
     }
 });
