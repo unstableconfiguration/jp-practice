@@ -9,9 +9,8 @@ export let page = lite.extend({
     },
     onContentBound : function() { 
         this.bindElements();
+        this.addEventListeners();
         this.addCanvas();
-
-        this.initializeElements();
     },
     bindElements : function() { 
         let get = (id) => document.getElementById(id);
@@ -31,16 +30,7 @@ export let page = lite.extend({
             canvasContainer : get('canvas-container')
         }
     },
-    addCanvas : function() {
-        let left = this.el.engDisplay1.getClientRects()[0].left;
-        let right = this.el.engDisplay5.getClientRects()[0].right;
-        
-        this.fingerPaint = new FingerPaint({
-            width : right - left
-        });
-        this.el.canvasContainer.appendChild(this.fingerPaint.canvas);
-    },
-    initializeElements : function() { 
+    addEventListeners : function() { 
         this.el.btnPreviousSet.addEventListener('click', this.onPreviousSetClick.bind(this));
         this.el.btnNextSet.addEventListener('click', this.onNextSetClick.bind(this));
 
@@ -49,6 +39,15 @@ export let page = lite.extend({
         this.el.jpDisplay3.addEventListener('click', this.onJPCharClick.bind(this));
         this.el.jpDisplay4.addEventListener('click', this.onJPCharClick.bind(this));
         this.el.jpDisplay5.addEventListener('click', this.onJPCharClick.bind(this));
+    },
+    addCanvas : function() {
+        let left = this.el.engDisplay1.getClientRects()[0].left;
+        let right = this.el.engDisplay5.getClientRects()[0].right;
+        
+        this.fingerPaint = new FingerPaint({
+            width : right - left
+        });
+        this.el.canvasContainer.appendChild(this.fingerPaint.canvas);
     },
     direction : { previous : 1, next : 2 },
     // the 'a' char of the current set
