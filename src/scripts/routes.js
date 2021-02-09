@@ -1,9 +1,8 @@
 
-/* 
-    Default behavior (defined in main.js): #hash/url/path looks for a file site/hash/url/path/path.js
-        So #dungeons-dragons/wild-magic opens site/dungeons-dragons/wild-magic/wild-magic.js
-*/
+/* Need static import statements for webpack to pick up the files.
+    Later we may adjust this as we learn more about it. */
 export let routes = [
-    { hash : '', value : 'landing/landing.js' },
+    { hash : '', value : () => import('../pages/landing/landing.js').then(view => new view.page().attach(document.getElementById('content'))) },
+    { hash : 'random-characters', value : () => import('../pages/random-characters/random-characters.js').then(view => new view.page().attach(document.getElementById('content'))) },
+    { hash : 'character-groups', value : () => import('../pages/character-groups/character-groups.js').then(view => new view.page().attach(document.getElementById('content'))) },
 ]
-

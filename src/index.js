@@ -13,18 +13,12 @@ let initializer = {
         window.lite = lite;
  
         lite.router = new lite.Router({
-            paths : routes, 
-            onHashChange : function(hash, filePath) {
-                hash = hash.substr(1);
-                if(!filePath) {
-                    // Default path behavior if not found in routes: 
-                        // #hash/url/path looks for file ../site/hash/url/path/path.js
-                    filePath = hash + '/' + hash.split('/').slice(-1)[0] + '.js';
-                }
-                let route = './pages/' + filePath;
-
-                import(route)
-                    .then(file => {                        
+            paths : routes,
+            onHashChange : function(hash, value) {
+                if(typeof(value) === 'function') { return value(); }
+                
+                import(value)
+                    .then(file => {  
                         new file.page().attach(document.getElementById('content'));
                     });
             }
@@ -33,4 +27,5 @@ let initializer = {
         window.onhashchange()
     }
 }
-    
+
+initializer.init();

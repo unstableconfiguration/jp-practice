@@ -3,8 +3,13 @@
   "version": "1.0.0",
   "description": "Japanese language practice!",
   "main": "src/index.js",
+  "private": true,
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "npm run delete-files & npm run copy-files & npm run bundle",
+    "delete-files": "del /s /q .\\dist\\*",
+    "copy-files": "XCopy /e /y /exclude:copy-files-exclude.txt .\\src\\* .\\dist\\",
+    "bundle": "webpack"
   },
   "repository": {
     "type": "git",
@@ -16,5 +21,10 @@
   "bugs": {
     "url": "https://github.com/unstableconfiguration/jp-practice/issues"
   },
-  "homepage": "https://github.com/unstableconfiguration/jp-practice#readme"
+  "homepage": "https://github.com/unstableconfiguration/jp-practice#readme",
+  "dependencies": {},
+  "devDependencies": {
+    "webpack": "^5.21.2",
+    "webpack-cli": "^4.5.0"
+  }
 }
