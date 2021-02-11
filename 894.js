@@ -1,1 +1,1 @@
-(self.webpackChunkjp_practice=self.webpackChunkjp_practice||[]).push([[894],{894:(e,c,p)=>{"use strict";p.r(c),p.d(c,{page:()=>t});var t=p(524).Ec.extend({content:"publish test"})}}]);
+(self.webpackChunkjp_practice=self.webpackChunkjp_practice||[]).push([[894],{894:(e,c,p)=>{"use strict";p.r(c),p.d(c,{page:()=>a});var a=p(524).Ec.extend({})}}]);
