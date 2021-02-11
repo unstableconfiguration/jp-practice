@@ -8,7 +8,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "serve": "webpack serve --config webpack.dev.config.js",
     "build": "webpack --config webpack.prod.config.js",
-    "publish": "git subtree push --prefix dist origin gh-pages"
+    "publish": "node publish.js"
   },
   "repository": {
     "type": "git",
@@ -21,7 +21,9 @@
     "url": "https://github.com/unstableconfiguration/jp-practice/issues"
   },
   "homepage": "https://github.com/unstableconfiguration/jp-practice#readme",
-  "dependencies": {},
+  "dependencies": {
+    "gh-pages": "^3.1.0"
+  },
   "devDependencies": {
     "@babel/core": "^7.12.13",
     "@babel/preset-env": "^7.12.13",
