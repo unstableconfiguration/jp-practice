@@ -6,9 +6,7 @@
   "private": true,
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build-dev": "npm run bundle-dev",
-    "copy": "XCopy /e /y /exclude:build\\copy-files-exclude.txt .\\src\\* .\\dist\\",
-    "bundle-dev": "webpack --config build\\webpack.dev.config.js"
+    "build-dev": "webpack --config webpack.dev.config.js"
   },
   "repository": {
     "type": "git",
