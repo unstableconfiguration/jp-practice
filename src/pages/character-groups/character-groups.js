@@ -3,7 +3,7 @@ import { hiragana } from '../../scripts/hiragana.js';
 import { FingerPaint } from '../../scripts/finger-paint.js';
 
 export let page = lite.extend({
-    contentUrl : 'pages/character-groups/character-groups.html',
+    contentUrl : './pages/character-groups/character-groups.html',
     initialize : function() { 
         this.loadStyleSheet('css/character-practice.css')
     },

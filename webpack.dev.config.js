@@ -4,11 +4,26 @@ const CopyWebpackPlugin = require("copy-webpack-plugin");
 
 module.exports = {
     mode : 'development',
-    devtool : false,
+    //devtool : false,
+    devtool: 'inline-source-map',
     entry : {
         index : {
             import : './src/index.js'
         }
+    },
+    module : { 
+        rules: [
+            {
+                test: /\.m?js$/,
+                exclude: /(node_modules|bower_components)/,
+                use: {
+                    loader: 'babel-loader',
+                    options: {
+                        presets: ['@babel/preset-env']
+                    }
+                }
+            }
+        ]
     },
     output : {
         filename : '[name].js',
