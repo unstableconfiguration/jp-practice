@@ -53,10 +53,7 @@ body {
 }
 
 .header a:link, .header a:visited {
-    border-bottom: solid thin var(--text-dark);
     color : var(--text-dark);
-
-    text-decoration:none;
 }
 
 .header a:hover, .header a:active { 

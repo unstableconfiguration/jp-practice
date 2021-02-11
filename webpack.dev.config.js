@@ -38,6 +38,7 @@ module.exports = {
                     filter : (path) => { 
                         return path.substr(-4) === 'html'
                             || path.substr(-3) === 'css'
+                            || path.substr(-3) === 'ico'
                     } 
                 },
             ]

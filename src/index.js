@@ -17,10 +17,10 @@ let initializer = {
             onHashChange : function(hash, value) {
                 if(typeof(value) === 'function') { return value(); }
                 
-                import(value)
-                    .then(file => {  
-                        new file.page().attach(document.getElementById('content'));
-                    });
+                //import(value)
+                //    .then(file => {  
+                //        new file.page().attach(document.getElementById('content'));
+                //    });
             }
         });
 
