@@ -1,6 +1,7 @@
 import del from 'rollup-plugin-delete';
 import babel from '@rollup/plugin-babel';
 import copy from 'rollup-plugin-copy'
+import serve from 'rollup-plugin-serve'
 
 export default [{
         input: 'src/index.js',
@@ -17,7 +18,8 @@ export default [{
                     { src : 'src/**/*.css', dest : 'dist' }
                 ],
                 flatten : false
-            })
+            }),
+            serve('dist')
         ]
     }
 ];
