@@ -1,1 +1,0 @@
-(self.webpackChunkjp_practice=self.webpackChunkjp_practice||[]).push([[894],{894:(e,c,p)=>{"use strict";p.r(c),p.d(c,{page:()=>a});var a=p(524).Ec.extend({})}}]);
