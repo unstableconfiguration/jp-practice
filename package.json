@@ -6,7 +6,7 @@
   "private": true,
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "serve": "",
+    "serve": "rollup --config rollup.dev.config.js",
     "build": "",
     "publish": "node publish.js"
   },
@@ -25,7 +25,7 @@
   "devDependencies": {
     "@babel/core": "^7.12.13",
     "@babel/preset-env": "^7.12.13",
-    "babel-loader": "^8.2.2",
-    "gh-pages": "^3.1.0"
+    "gh-pages": "^3.1.0",
+    "rollup": "^2.41.0"
   }
 }
