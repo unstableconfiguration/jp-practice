@@ -21,17 +21,11 @@
     "url": "https://github.com/unstableconfiguration/jp-practice/issues"
   },
   "homepage": "https://github.com/unstableconfiguration/jp-practice#readme",
-  "dependencies": {
-    "gh-pages": "^3.1.0"
-  },
+  "dependencies": {},
   "devDependencies": {
     "@babel/core": "^7.12.13",
     "@babel/preset-env": "^7.12.13",
     "babel-loader": "^8.2.2",
-    "clean-webpack-plugin": "^3.0.0",
-    "copy-webpack-plugin": "^7.0.0",
-    "webpack": "^5.21.2",
-    "webpack-cli": "^4.5.0",
-    "webpack-dev-server": "^3.11.2"
+    "gh-pages": "^3.1.0"
   }
 }
