@@ -1,5 +1,5 @@
 
-/* Need static import statements for webpack to pick up the files.
+/* Need static import statements for bundler to pick up the files.
     Later we may adjust this as we learn more about it. */
 export let routes = [
     { hash : '', value : () => import('../pages/landing/landing.js').then(view => new view.page().attach(document.getElementById('content'))) },
