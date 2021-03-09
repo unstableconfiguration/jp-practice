@@ -14,7 +14,8 @@ export default [{
             copy({
                 targets : [
                     { src : 'src/**/*.html', dest: 'dist' },
-                    { src : 'src/**/*.css', dest : 'dist' }
+                    { src : 'src/**/*.css', dest : 'dist' },
+                    { src : 'src/favicon.ico', dest: 'dist' }
                 ],
                 flatten : false
             }),
