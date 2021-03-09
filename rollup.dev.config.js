@@ -1,5 +1,5 @@
 import del from 'rollup-plugin-delete';
-//import babel from '@rollup/plugin-babel';
+import babel from '@rollup/plugin-babel';
 import copy from 'rollup-plugin-copy'
 
 export default [{
@@ -10,7 +10,7 @@ export default [{
         },
         plugins : [
             del({ targets: 'dist/*' }),
-            //babel({ babelHelpers: 'bundled' }),
+            babel({ babelHelpers: 'bundled' }),
             copy({
                 targets : [
                     { src : 'src/**/*.html', dest: 'dist' },
