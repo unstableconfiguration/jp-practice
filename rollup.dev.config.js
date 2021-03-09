@@ -1,4 +1,4 @@
-//import del from 'rollup-plugin-delete';
+import del from 'rollup-plugin-delete';
 //import babel from '@rollup/plugin-babel';
 //import copy from 'rollup-plugin-copy'
 
@@ -9,7 +9,7 @@ export default [{
             format: 'es'
         },
         plugins : [
-            //del({ targets: 'dist/*' }),
+            del({ targets: 'dist/*' }),
             //babel({ babelHelpers: 'bundled' }),
             //copy({
             //    targets : [
